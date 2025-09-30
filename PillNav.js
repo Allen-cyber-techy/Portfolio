@@ -1,5 +1,3 @@
-import { gsap } from 'https://cdn.jsdelivr.net/npm/gsap@3.12.2/index.js';
-
 const PillNav = (container, options) => {
   const {
     logo,
@@ -198,5 +196,3 @@ const PillNav = (container, options) => {
   logoRef.addEventListener('mouseenter', handleLogoEnter);
   hamburgerRef.addEventListener('click', toggleMobileMenu);
 };
-
-export default PillNav;
