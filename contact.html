@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact - Allen Sunil</title>
+  <link rel="stylesheet" href="index.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script>
+    (function () {
+      emailjs.init("8oCsGSz7ZtcmIm9HK"); // <-- Replace with your actual Public Key
+    })();
+  </script>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">Allen Sunil</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="labs.html">Labs</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="contact-section">
+    <section>
+      <h1>Contact Me</h1>
+      <p>If you have any questions, project ideas, or just want to say hello, feel free to reach out using the form below.</p>
+
+      <form class="contact-form" id="contact-form">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Your name" pattern="[A-Za-z ]+" title="Only letters are allowed" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Your email" required>
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" placeholder="Your message" required></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>Connect with me:</p>
+    <div class="social-links">
+      <a href="https://github.com/Allen-cyber-techy" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/allen-sunil-7aa78a208" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="mailto:allen.sunil.3734@gmail.com"><i class="fas fa-envelope"></i></a>
+    </div>
+    <p>&copy; 2025 Allen Sunil. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById("contact-form").addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      emailjs.sendForm("service_ewvcqhh", "template_nms7ejp", this).then(
+        function () {
+          alert("Message sent successfully!");
+          document.getElementById("contact-form").reset();
+        },
+        function (error) {
+          alert("Failed to send message. Please try again.");
+          console.error(error);
+        }
+      );
+    });
+  </script>
+</body>
+</html>
