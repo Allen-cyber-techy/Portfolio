@@ -5,9 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Labs - Allen Sunil</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
   <link rel="stylesheet" href="index.css">
 </head>
 <body>
+  <canvas id="glitch-canvas"></canvas>
   <header>
     <nav>
       <div class="logo">Allen Sunil</div>
@@ -22,42 +24,41 @@
     </nav>
   </header>
 
-  <!-- Labs Page Header -->
-  <section class="labs-header">
-    <h1>My Labs</h1>
-    <p>Hands-on experiments and setups in cybersecurity, scripting, automation, and cloud.</p>
-  </section>
+  <main>
+    <div class="labs-header">
+      <h1>My Labs</h1>
+      <p>Hands-on experiments and setups in cybersecurity, scripting, automation, and cloud.</p>
+    </div>
+    <section class="labs-section">
+      <div class="lab-card">
+        <i class="fas fa-robot"></i>
+        <h2>Discord Bot Development</h2>
+        <p>Created a custom Discord bot using Node.js to automate server tasks, handle user commands, and integrate with APIs.</p>
+      </div>
 
-  <!-- Labs Grid Section -->
-  <main class="labs-section">
-    <section class="lab-card">
-      <i class="fas fa-robot"></i>
-      <h2>Discord Bot Development</h2>
-      <p>Created a custom Discord bot using Node.js to automate server tasks, handle user commands, and integrate with APIs.</p>
-    </section>
+      <div class="lab-card">
+        <i class="fas fa-server"></i>
+        <h2>Game Server Hosting</h2>
+        <p>Configured and managed dedicated gaming servers using cloud and local machines, with mod support and performance tuning.</p>
+      </div>
 
-    <section class="lab-card">
-      <i class="fas fa-server"></i>
-      <h2>Game Server Hosting</h2>
-      <p>Configured and managed dedicated gaming servers using cloud and local machines, with mod support and performance tuning.</p>
-    </section>
+      <div class="lab-card">
+        <i class="fas fa-network-wired"></i>
+        <h2>Cybersecurity Lab Setup</h2>
+        <p>Built a virtual lab using VirtualBox with Kali Linux, Metasploitable, and Windows VMs to practice penetration testing tools and ethical hacking techniques.</p>
+      </div>
 
-    <section class="lab-card">
-      <i class="fas fa-network-wired"></i>
-      <h2>Cybersecurity Lab Setup</h2>
-      <p>Built a virtual lab using VirtualBox with Kali Linux, Metasploitable, and Windows VMs to practice penetration testing tools and ethical hacking techniques.</p>
-    </section>
+      <div class="lab-card">
+        <i class="fas fa-cloud"></i>
+        <h2>Cloud Infrastructure Experiments</h2>
+        <p>Used cloud platforms to deploy VMs and test basic server deployments, firewall settings, and secure access configurations.</p>
+      </div>
 
-    <section class="lab-card">
-      <i class="fas fa-cloud"></i>
-      <h2>Cloud Infrastructure Experiments</h2>
-      <p>Used cloud platforms to deploy VMs and test basic server deployments, firewall settings, and secure access configurations.</p>
-    </section>
-
-    <section class="lab-card">
-      <i class="fas fa-terminal"></i>
-      <h2>Script & Automation Testing</h2>
-      <p>Experimented with Python scripts for basic automation tasks like system monitoring, file handling, and bot interactions.</p>
+      <div class="lab-card">
+        <i class="fas fa-terminal"></i>
+        <h2>Script & Automation Testing</h2>
+        <p>Experimented with Python scripts for basic automation tasks like system monitoring, file handling, and bot interactions.</p>
+      </div>
     </section>
   </main>
 
@@ -70,5 +71,7 @@
     </div>
     <p>&copy; 2025 Allen Sunil. All rights reserved.</p>
   </footer>
+
+  <script src="letter-glitch.js"></script>
 </body>
 </html>

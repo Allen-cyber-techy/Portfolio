@@ -1,19 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact - Allen Sunil</title>
-  <link rel="stylesheet" href="index.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-  <script>
-    (function () {
-      emailjs.init("8oCsGSz7ZtcmIm9HK"); // <-- Replace with your actual Public Key
-    })();
-  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="index.css">
 </head>
 <body>
+  <canvas id="glitch-canvas"></canvas>
   <header>
     <nav>
       <div class="logo">Allen Sunil</div>
@@ -28,20 +24,20 @@
     </nav>
   </header>
 
-  <main class="contact-section">
-    <section>
+  <main>
+    <section class="contact-section">
       <h1>Contact Me</h1>
-      <p>If you have any questions, project ideas, or just want to say hello, feel free to reach out using the form below.</p>
+      <p>If you have any questions, project ideas, or just want to connect, feel free to reach out using the form below.</p>
 
       <form class="contact-form" id="contact-form">
         <label for="name">Name</label>
-        <input type="text" id="name" name="name" placeholder="Your name" pattern="[A-Za-z ]+" title="Only letters are allowed" required>
+        <input type="text" id="name" name="name" placeholder="Your Name" required>
 
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="Your email" required>
+        <input type="email" id="email" name="email" placeholder="Your Email" required>
 
         <label for="message">Message</label>
-        <textarea id="message" name="message" rows="5" placeholder="Your message" required></textarea>
+        <textarea id="message" name="message" rows="6" placeholder="Your Message" required></textarea>
 
         <button type="submit">Send Message</button>
       </form>
@@ -58,21 +54,23 @@
     <p>&copy; 2025 Allen Sunil. All rights reserved.</p>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
   <script>
-    document.getElementById("contact-form").addEventListener("submit", function (event) {
+    (function() {
+      emailjs.init("8oCsGSz7ZtcmIm9HK"); // Replace with your EmailJS public key
+    })();
+
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
       event.preventDefault();
 
-      emailjs.sendForm("service_ewvcqhh", "template_nms7ejp", this).then(
-        function () {
-          alert("Message sent successfully!");
-          document.getElementById("contact-form").reset();
-        },
-        function (error) {
-          alert("Failed to send message. Please try again.");
-          console.error(error);
-        }
-      );
+      emailjs.sendForm('service_ewvcqhh', 'template_nms7ejp', this)
+        .then(function() {
+          alert('Message sent successfully!');
+        }, function(error) {
+          alert('Failed to send message. Please try again later.');
+        });
     });
   </script>
+  <script src="letter-glitch.js"></script>
 </body>
 </html>
