@@ -1,97 +1,88 @@
-const PillNav = (container, options) => {
-  const {
-    items,
-    activeHref,
-    ease = 'power3.easeOut',
-    baseColor = '#fff',
-    pillColor = '#060010',
-    hoveredPillTextColor = '#060010',
-    pillTextColor,
-    initialLoadAnimation = true
-  } = options;
+const PillNav = (container, options = {}) => {
+  const { items, activeHref, baseColor } = options;
+  const nav = document.createElement('nav');
+  nav.className = 'pill-nav';
 
-  const resolvedPillTextColor = pillTextColor ?? baseColor;
-  let isMobileMenuOpen = false;
-  let hamburgerRef;
-  let mobileMenuRef;
-  let navItemsRef;
-  let logoRef;
+  const list = document.createElement('ul');
+  list.className = 'pill-nav-list';
 
-  const cssVars = {
-    '--base': baseColor,
-    '--pill-bg': pillColor,
-    '--hover-text': hoveredPillTextColor,
-    '--pill-text': resolvedPillTextColor
+  const highlight = document.createElement('div');
+  highlight.className = 'pill-nav-highlight';
+  list.appendChild(highlight);
+
+  let activeItem;
+
+  items.forEach(itemData => {
+    const item = document.createElement('li');
+    const link = document.createElement('a');
+    link.href = itemData.href;
+    link.textContent = itemData.label;
+    item.appendChild(link);
+    list.appendChild(item);
+
+    if (itemData.href === activeHref) {
+      activeItem = item;
+    }
+
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      document.querySelector(itemData.href).scrollIntoView({ behavior: 'smooth' });
+      setActive(item);
+    });
+  });
+
+  nav.appendChild(list);
+  container.appendChild(nav);
+
+  const setActive = (item) => {
+    if (activeItem) {
+      activeItem.classList.remove('active');
+    }
+    activeItem = item;
+    activeItem.classList.add('active');
+    positionHighlight(item);
   };
 
-  const navHTML = `
-    <nav class="pill-nav" aria-label="Primary" style="${Object.entries(cssVars).map(([k, v]) => `${k}: ${v}`).join(';')}">
-      <a class="pill-logo" href="${items?.[0]?.href || '#'}" aria-label="Home">
-        Allen Sunil
-      </a>
-      <div class="pill-nav-items desktop-only">
-        <ul class="pill-list" role="menubar">
-          ${items.map((item, i) => `
-            <li role="none">
-              <a role="menuitem" href="${item.href}" class="pill${activeHref === item.href ? ' is-active' : ''}" aria-label="${item.ariaLabel || item.label}">
-                ${item.label}
-              </a>
-            </li>
-          `).join('')}
-        </ul>
-      </div>
-      <button class="mobile-menu-button mobile-only" aria-label="Toggle menu">
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-      </button>
-    </nav>
-    <div class="mobile-menu-popover mobile-only" style="${Object.entries(cssVars).map(([k, v]) => `${k}: ${v}`).join(';')}">
-      <ul class="mobile-menu-list">
-        ${items.map(item => `
-          <li>
-            <a href="${item.href}" class="mobile-menu-link${activeHref === item.href ? ' is-active' : ''}">${item.label}</a>
-          </li>
-        `).join('')}
-      </ul>
-    </div>
-  `;
+  const positionHighlight = (item) => {
+    if (!item) return;
+    highlight.style.width = `${item.offsetWidth}px`;
+    highlight.style.left = `${item.offsetLeft}px`;
+  };
 
-  container.innerHTML = navHTML;
-
-  logoRef = container.querySelector('.pill-logo');
-  navItemsRef = container.querySelector('.pill-nav-items');
-  hamburgerRef = container.querySelector('.mobile-menu-button');
-  mobileMenuRef = container.querySelector('.mobile-menu-popover');
-
-  if (mobileMenuRef) {
-    gsap.set(mobileMenuRef, { visibility: 'hidden', opacity: 0, scaleY: 1 });
-  }
-
-  if (initialLoadAnimation) {
-    if (logoRef) {
-      gsap.set(logoRef, { scale: 0 });
-      gsap.to(logoRef, { scale: 1, duration: 0.6, ease });
-    }
-    if (navItemsRef) {
-      gsap.set(navItemsRef, { width: 0, overflow: 'hidden' });
-      gsap.to(navItemsRef, { width: 'auto', duration: 0.6, ease });
-    }
-  }
-
-  const toggleMobileMenu = () => {
-    isMobileMenuOpen = !isMobileMenuOpen;
-    const lines = hamburgerRef.querySelectorAll('.hamburger-line');
-    if (isMobileMenuOpen) {
-      gsap.to(lines[0], { rotation: 45, y: 3, duration: 0.3, ease });
-      gsap.to(lines[1], { rotation: -45, y: -3, duration: 0.3, ease });
-      gsap.set(mobileMenuRef, { visibility: 'visible' });
-      gsap.fromTo(mobileMenuRef, { opacity: 0, y: 10, scaleY: 1 }, { opacity: 1, y: 0, scaleY: 1, duration: 0.3, ease, transformOrigin: 'top center' });
-    } else {
-      gsap.to(lines[0], { rotation: 0, y: 0, duration: 0.3, ease });
-      gsap.to(lines[1], { rotation: 0, y: 0, duration: 0.3, ease });
-      gsap.to(mobileMenuRef, { opacity: 0, y: 10, scaleY: 1, duration: 0.2, ease, transformOrigin: 'top center', onComplete: () => gsap.set(mobileMenuRef, { visibility: 'hidden' }) });
+  const setHighlightColor = () => {
+    if (baseColor) {
+      highlight.style.setProperty('--highlight-bg-color', baseColor);
     }
   };
 
-  hamburgerRef.addEventListener('click', toggleMobileMenu);
+  // Set initial state
+  setActive(activeItem);
+  setHighlightColor();
+
+  window.addEventListener('resize', () => positionHighlight(activeItem));
+  // Scrollspy to update active item
+  const sections = items.map(item => document.querySelector(item.href));
+
+  const scrollSpy = () => {
+    let currentSection = null;
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 100;
+      const sectionHeight = section.offsetHeight;
+      if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+        currentSection = section;
+      }
+    });
+
+    if (currentSection) {
+      const newActiveItem = Array.from(list.children).find(li => {
+        const a = li.querySelector('a');
+        return a && a.getAttribute('href') === `#${currentSection.id}`;
+      });
+      if (newActiveItem && newActiveItem !== activeItem) {
+        setActive(newActiveItem);
+      }
+    }
+  };
+
+  window.addEventListener('scroll', scrollSpy);
 };

@@ -1,126 +1,36 @@
-/* PillNav Component Styles */
-.pill-nav-container {
-  position: relative;
-}
-
+/* PillNav.css */
 .pill-nav {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  background-color: transparent;
-  position: relative;
-  z-index: 1000;
-}
-
-.pill-logo {
-  display: inline-block;
-  vertical-align: middle;
-  flex-shrink: 0;
-  color: var(--base, #fff);
-  font-weight: 700;
-  font-size: 1.5rem;
-  text-decoration: none;
-}
-
-.pill-nav-items {
-  flex-grow: 1;
-  display: flex;
   justify-content: center;
-}
-
-.pill-list {
-  list-style: none;
-  display: flex;
   align-items: center;
-  margin: 0;
-  padding: 0;
-}
-
-.pill {
   position: relative;
-  display: inline-block;
-  text-decoration: none;
-  color: var(--pill-text, #fff);
-  padding: 10px 20px;
-  cursor: pointer;
+}
+
+.pill-nav-list {
+  display: flex;
+  position: relative;
+  background-color: transparent;
   border-radius: 999px;
-  font-weight: 500;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.pill:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-  color: #fff;
-}
-
-.pill.is-active {
-  background-color: var(--base, #fff);
-  color: var(--hover-text, #060010);
-}
-
-/* Mobile Styles */
-.mobile-only {
-  display: none;
-}
-
-.mobile-menu-button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 10px;
-  z-index: 1001;
-}
-
-.hamburger-line {
-  display: block;
-  width: 24px;
-  height: 2px;
-  background-color: var(--base, #fff);
-  margin: 5px 0;
-  transition: transform 0.3s ease, top 0.3s ease;
-}
-
-.mobile-menu-popover {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  background-color: var(--pill-bg, #060010);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
-  padding: 1rem;
-  visibility: hidden;
-  opacity: 0;
-  z-index: 999;
-  margin: 0 1rem;
-}
-
-.mobile-menu-list {
+  padding: 5px;
   list-style: none;
-  padding: 0;
-  margin: 0;
 }
 
-.mobile-menu-list li a {
+.pill-nav-list li a {
   display: block;
-  padding: 1rem;
+  padding: 10px 24px;
   text-decoration: none;
-  color: var(--base, #fff);
-  border-radius: 4px;
-  transition: background-color 0.2s ease;
+  color: #E0E0E0;
+  font-weight: 500;
+  position: relative;
+  z-index: 1;
 }
 
-.mobile-menu-list li a:hover,
-.mobile-menu-list li a.is-active {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-@media (max-width: 768px) {
-  .desktop-only {
-    display: none;
-  }
-  .mobile-only {
-    display: block;
-  }
+.pill-nav-highlight {
+  position: absolute;
+  top: 5px;
+  left: 0;
+  height: calc(100% - 10px);
+  background-color: #283583; /* Dark blue from image */
+  border-radius: 999px;
+  transition: all 0.3s ease-in-out;
 }
