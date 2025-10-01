@@ -59,8 +59,8 @@ ul {
 
 .cursor-outline.hover {
     transform: translate(-50%, -50%) scale(1.5);
-    background-color: rgba(40, 53, 131, 0.2);
-    border-color: rgba(40, 53, 131, 0.5);
+    background-color: rgba(255, 75, 75, 0.2);
+    border-color: rgba(255, 75, 75, 0.5);
 }
 
 /* Floating Icons */
@@ -101,15 +101,64 @@ ul {
 
 /* Header and Navigation */
 header {
-  background-color: transparent;
+  background-color: transparent; /* Transparent by default */
   padding: 1.2rem 2rem;
-  box-shadow: 0 2px 5px rgba(40, 53, 131, 0.5);
   position: sticky;
   top: 0;
   z-index: 1000;
   display: flex;
+  justify-content: space-between; /* Updated */
+  align-items: center;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+}
+
+header.scrolled {
+  background-color: rgba(0, 0, 0, 0.7); /* Scrolled background */
+  box-shadow: 0 2px 5px rgba(255, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.header-name {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #ff4b4b;
+  text-shadow: 0 0 10px #ff4b4b;
+}
+
+.pill-nav {
+  display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+}
+
+.pill-nav-list {
+  display: flex;
+  position: relative;
+  background-color: transparent;
+  border-radius: 999px;
+  padding: 5px;
+  list-style: none;
+}
+
+.pill-nav-list li a {
+  display: block;
+  padding: 10px 24px;
+  text-decoration: none;
+  color: #E0E0E0;
+  font-weight: 500;
+  position: relative;
+  z-index: 1;
+}
+
+.pill-nav-highlight {
+  position: absolute;
+  top: 5px;
+  left: 0;
+  height: calc(100% - 10px);
+  background-color: #ff4b4b; /* Red color */
+  border-radius: 999px;
+  transition: all 0.3s ease-in-out;
 }
 
 /* Hero Section */
@@ -148,17 +197,17 @@ header {
 .hero-image {
   width: 400px;
   height: 400px;
-  background: url('https://images.unsplash.com/photo-1550745165-9bc0b252726a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
+  background: url('20250523_111238 (1).webp') no-repeat center center/cover;
   border-radius: 50%;
-  border: 5px solid #283583;
-  box-shadow: 0 0 30px #283583;
+  border: 5px solid #ff4b4b;
+  box-shadow: 0 0 30px #ff4b4b;
 }
 
 .hero .main-title {
   font-size: 4.5rem;
   margin-bottom: 1rem;
-  color: #283583;
-  text-shadow: 0 0 20px #283583;
+  color: #ff4b4b;
+  text-shadow: 0 0 20px #ff4b4b;
   font-weight: 700;
 }
 
@@ -169,22 +218,22 @@ header {
 }
 
 .hero .btn {
-  background-color: #283583;
+  background-color: #ff4b4b;
   color: #fff;
   padding: 1rem 2.5rem;
   border-radius: 50px;
   font-weight: bold;
   font-size: 1.2rem;
   transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 0 15px rgba(40, 53, 131, 0.7);
-  border: 2px solid #283583;
+  box-shadow: 0 0 15px rgba(255, 75, 75, 0.7);
+  border: 2px solid #ff4b4b;
 }
 
 .hero .btn:hover {
   background-color: transparent;
-  color: #283583;
+  color: #ff4b4b;
   transform: scale(1.1);
-  box-shadow: 0 0 25px #283583;
+  box-shadow: 0 0 25px #ff4b4b;
 }
 
 /* Main content layout */
@@ -207,7 +256,7 @@ main {
 .content-section h1 {
   font-size: 3.2rem;
   margin-bottom: 2rem;
-  color: #283583;
+  color: #ff4b4b;
 }
 
 /* About Section */
@@ -229,8 +278,8 @@ main {
 .about-image {
     width: 100%;
     border-radius: 15px;
-    border: 3px solid #283583;
-    box-shadow: 0 0 20px #283583;
+    border: 3px solid #ff4b4b;
+    box-shadow: 0 0 20px #ff4b4b;
 }
 
 /* Projects, Services, Labs cards */
@@ -257,19 +306,13 @@ main {
 
 .project:hover,
 .lab-card:hover {
-  box-shadow: 0 12px 25px rgba(40, 53, 131, 0.2);
-  border-color: #283583;
-}
-
-.project-image {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
+  box-shadow: 0 12px 25px rgba(255, 75, 75, 0.2);
+  border-color: #ff4b4b;
 }
 
 .project h3,
 .lab-card h2 {
-  color: #283583;
+  color: #ff4b4b;
   margin: 1.5rem 1.5rem 1rem;
   font-size: 1.6rem;
   transform: translateZ(20px);
@@ -281,9 +324,13 @@ main {
 
 .lab-card i {
     font-size: 2.8rem;
-    color: #283583;
+    color: #ff4b4b;
     margin: 1.5rem;
     transform: translateZ(20px);
+}
+
+.project-image {
+    display: none;
 }
 
 /* Footer */
@@ -309,9 +356,9 @@ footer {
 }
 
 .social-links a:hover {
-  color: #283583;
+  color: #ff4b4b;
   transform: scale(1.3);
-  text-shadow: 0 0 15px #283583;
+  text-shadow: 0 0 15px #ff4b4b;
 }
 
 /* Responsive Design */
@@ -389,13 +436,13 @@ footer {
 .contact-form input:focus,
 .contact-form textarea:focus {
   outline: none;
-  border-color: #283583;
-  box-shadow: 0 0 12px rgba(40, 53, 131, 0.5);
+  border-color: #ff4b4b;
+  box-shadow: 0 0 12px rgba(255, 75, 75, 0.5);
 }
 
 .contact-form button {
   padding: 1.2rem;
-  background-color: #283583;
+  background-color: #ff4b4b;
   color: #fff;
   font-weight: bold;
   border: none;
@@ -406,8 +453,8 @@ footer {
 }
 
 .contact-form button:hover {
-  background-color: #1c255a;
-  box-shadow: 0 0 20px rgba(40, 53, 131, 0.8);
+  background-color: #e03c3c;
+  box-shadow: 0 0 20px rgba(255, 75, 75, 0.8);
   transform: translateY(-3px);
 }
 
@@ -419,7 +466,7 @@ footer {
 
 .labs-header h1 {
   font-size: 3.2rem;
-  color: #283583;
+  color: #ff4b4b;
   margin-bottom: 1.5rem;
 }
 

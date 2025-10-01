@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
   <link rel="stylesheet" href="index.css">
-  <link rel="stylesheet" href="PillNav.css">
 </head>
 <body>
   <div class="cursor-dot" data-cursor-dot></div>
@@ -24,7 +23,20 @@
     <i class="fab fa-git-alt"></i>
   </div>
 
-  <header id="pill-nav-container"></header>
+  <header>
+    <div class="header-name">Allen Sunil</div>
+    <nav class="pill-nav">
+      <ul class="pill-nav-list">
+        <div class="pill-nav-highlight"></div>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#labs">Labs</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
   <main>
     <section id="home" class="hero">
@@ -41,40 +53,29 @@
     </section>
 
     <section id="about" class="content-section">
-        <div class="about-content-container">
-            <div class="about-text">
-                <h1>About Me</h1>
-                <p>I'm Allen Sunil, currently learning at Brototype and focusing on cybersecurity. I have hands-on experience with technologies including HTML, CSS, Python, C, C++, Java, and Node.js.</p>
-                <p>In my free time, I enjoy playing video games, hosting dedicated gaming servers, and working with cloud computing and virtual machines. I’ve also built a Discord bot, which helped me deepen my understanding of automation, APIs, and backend development.</p>
-                <p>I’m passionate about tech, always eager to explore new tools, and committed to growing my skills in both cybersecurity and full-stack development.</p>
-            </div>
-            <div class="about-image-container">
-                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Person working on a computer" class="about-image">
-            </div>
-        </div>
+      <h1>About Me</h1>
+      <p>I'm Allen Sunil, currently learning at Brototype and focusing on cybersecurity. I have hands-on experience with technologies including HTML, CSS, Python, C, C++, Java, and Node.js.</p>
+      <p>In my free time, I enjoy playing video games, hosting dedicated gaming servers, and working with cloud computing and virtual machines. I’ve also built a Discord bot, which helped me deepen my understanding of automation, APIs, and backend development.</p>
+      <p>I’m passionate about tech, always eager to explore new tools, and committed to growing my skills in both cybersecurity and full-stack development.</p>
     </section>
 
     <section id="projects" class="content-section">
       <h1>My Projects</h1>
       <div class="project-list">
         <div class="project" data-tilt>
-          <img src="https://images.unsplash.com/photo-1581091226809-a1d7e82270d1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Discord Bot Development" class="project-image">
-          <h3>Discord Bot Development</h3>
+          <h3><i class="fas fa-robot"></i> Discord Bot Development</h3>
           <p>Built a custom Discord bot using Node.js and JavaScript to manage server tasks, automate messages, and respond to user commands. This project helped me gain hands-on experience with APIs, asynchronous programming, and bot hosting.</p>
         </div>
         <div class="project" data-tilt>
-          <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Personal Portfolio Website" class="project-image">
-          <h3>Personal Portfolio Website</h3>
+          <h3><i class="fas fa-code"></i> Personal Portfolio Website</h3>
           <p>Designed and developed a responsive portfolio website using HTML and CSS to showcase my skills, projects, and contact information. This project gave me a solid foundation in frontend development and web design.</p>
         </div>
         <div class="project" data-tilt>
-          <img src="https://images.unsplash.com/photo-1580234811497-9df7fd2f357e?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Gaming Server Hosting" class="project-image">
-          <h3>Gaming Server Hosting</h3>
+          <h3><i class="fas fa-gamepad"></i> Gaming Server Hosting</h3>
           <p>Regularly set up and manage dedicated game servers for multiplayer games. This involves working with cloud computing platforms, configuring virtual machines (VMs), handling server-side settings, and ensuring smooth real-time gameplay experiences.</p>
         </div>
         <div class="project" data-tilt>
-          <img src="https://images.unsplash.com/photo-1563206767-5b18f218e8de?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Virtual Lab for Cybersecurity Practice" class="project-image">
-          <h3>Virtual Lab for Cybersecurity Practice</h3>
+          <h3><i class="fas fa-shield-alt"></i> Virtual Lab for Cybersecurity Practice</h3>
           <p>Created a home lab environment using VMware and VirtualBox for practicing cybersecurity tools and techniques. This includes OS installations, network simulations, and testing of various cybersecurity concepts.</p>
         </div>
       </div>
@@ -85,33 +86,27 @@
       <p>Here are some of the key services I offer to help individuals and businesses thrive in the digital world:</p>
       <div class="project-list">
         <div class="project" data-tilt>
-          <img src="https://images.unsplash.com/photo-1562813733-b31f71025d54?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Cybersecurity Practices" class="project-image">
-          <h3>Cybersecurity Practices</h3>
+          <h3><i class="fas fa-shield-alt"></i> Cybersecurity Practices</h3>
           <p>Helping individuals and teams understand and implement basic cybersecurity practices — including threat identification, secure configurations, and system hardening.</p>
         </div>
         <div class="project" data-tilt>
-          <img src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Web Development" class="project-image">
-          <h3>Web Development</h3>
+          <h3><i class="fas fa-code"></i> Web Development</h3>
           <p>Building modern, clean, and responsive websites using HTML, CSS, and JavaScript, with a focus on usability and performance.</p>
         </div>
         <div class="project" data-tilt>
-          <img src="https://images.unsplash.com/photo-1620712943543-285f726a8a58?q=80&w=2085&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Project Automation (Bots)" class="project-image">
-          <h3>Project Automation (Bots)</h3>
+          <h3><i class="fas fa-robot"></i> Project Automation (Bots)</h3>
           <p>Developing custom bots (like Discord bots) to automate tasks, integrate APIs, and improve engagement or workflow.</p>
         </div>
         <div class="project" data-tilt>
-          <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1934&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Cloud & Virtual Machines Setup" class="project-image">
-          <h3>Cloud & Virtual Machines Setup</h3>
+          <h3><i class="fas fa-cloud"></i> Cloud & Virtual Machines Setup</h3>
           <p>Setting up cloud infrastructure, virtual machines, and dedicated game or dev servers for practical experimentation and deployment.</p>
         </div>
         <div class="project" data-tilt>
-          <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Game Server Hosting" class="project-image">
-          <h3>Game Server Hosting</h3>
+          <h3><i class="fas fa-gamepad"></i> Game Server Hosting</h3>
           <p>Hosting and managing multiplayer game servers with full control, mod support, and performance optimization.</p>
         </div>
         <div class="project" data-tilt>
-          <img src="https://images.unsplash.com/photo-1599696898767-73b3c3758362?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Penetration Testing (Basic)" class="project-image">
-          <h3>Penetration Testing (Basic)</h3>
+          <h3><i class="fas fa-vial"></i> Penetration Testing (Basic)</h3>
           <p>Practicing ethical hacking in lab environments to identify security flaws and strengthen system defenses.</p>
         </div>
       </div>
@@ -180,21 +175,72 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/ScrollTrigger.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.2/dist/vanilla-tilt.min.js"></script>
-  <script src="PillNav.js"></script>
   <script src="cursor.js"></script>
   <script>
-    const navItems = [
-      { href: '#home', label: 'Home' },
-      { href: '#about', label: 'About' },
-      { href: '#services', label: 'Services' },
-      { href: '#projects', label: 'Case Study' },
-      { href: '#contact', label: 'Contact' }
-    ];
+    const header = document.querySelector('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) { // Add scrolled class after 50px of scrolling
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
 
-    PillNav(document.getElementById('pill-nav-container'), {
-      items: navItems,
-      activeHref: '#home',
-      baseColor: '#283583'
+    const navLinks = document.querySelectorAll('.pill-nav-list li a');
+    const highlight = document.querySelector('.pill-nav-highlight');
+    const pills = document.querySelectorAll('.pill-nav-list li');
+    let activePill = pills[0]; // Default to home
+
+    function moveHighlight(targetPill) {
+      if (targetPill) {
+        highlight.style.width = `${targetPill.offsetWidth}px`;
+        highlight.style.left = `${targetPill.offsetLeft}px`;
+      }
+    }
+
+    // Initial position
+    moveHighlight(activePill);
+
+    pills.forEach(pill => {
+      const link = pill.querySelector('a');
+      link.addEventListener('mouseenter', () => {
+        moveHighlight(pill);
+      });
+
+      link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = link.getAttribute('href');
+          document.querySelector(targetId).scrollIntoView({ behavior: 'smooth' });
+          activePill = pill;
+      });
+    });
+
+    document.querySelector('.pill-nav-list').addEventListener('mouseleave', () => {
+        moveHighlight(activePill);
+    });
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const sections = gsap.utils.toArray('section');
+
+    sections.forEach(section => {
+      ScrollTrigger.create({
+        trigger: section,
+        start: "top center",
+        end: "bottom center",
+        onEnter: () => {
+            const id = section.getAttribute('id');
+            const correspondingPill = document.querySelector(`.pill-nav-list li a[href="#${id}"]`).parentElement;
+            activePill = correspondingPill;
+            moveHighlight(activePill);
+        },
+        onEnterBack: () => {
+            const id = section.getAttribute('id');
+            const correspondingPill = document.querySelector(`.pill-nav-list li a[href="#${id}"]`).parentElement;
+            activePill = correspondingPill;
+            moveHighlight(activePill);
+        }
+      });
     });
 
     (function() {
@@ -210,8 +256,6 @@
           alert('Failed to send message. Please try again later.');
         });
     });
-
-    gsap.registerPlugin(ScrollTrigger);
 
     // Hero section animation
     gsap.from(".main-title", { duration: 1, y: 50, opacity: 0, ease: "power3.out" });
