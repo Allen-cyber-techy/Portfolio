@@ -318,7 +318,8 @@ main {
   transform: translateZ(20px);
 }
 
-.project p {
+.project p,
+.lab-card p {
     padding: 0 1.5rem 1.5rem;
 }
 
